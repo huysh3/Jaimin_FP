@@ -13,9 +13,9 @@ import router from './router';
 import './static/app.less';
 
 // development or production
-let verPath = '/CMS-V1/';
+let verPath = '/api/';
 if (process.env.NODE_ENV === 'development') {
-  verPath = '/CMS-TEST/';
+  verPath = '/api/';
 }
 
 Vue.prototype.ENV = process.env.NODE_ENV;
@@ -25,7 +25,7 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, { locale });
 
 Vue.prototype.axios = axios.create({
-  baseURL: `https://costa.wechatify.com${verPath}`,
+  baseURL: `http://122.152.226.42${verPath}`,
   withCredentials: false,
 });
 

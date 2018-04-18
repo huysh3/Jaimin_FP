@@ -8,33 +8,20 @@
             <div class="header--title">Content Management</div>
             <div class="header--subtitle"></div>
           </section>
-          <el-submenu v-for="(item, $index) in navTree" :key="`${$index}`" :index="`${$index}`">
-            <template slot="title">{{item.title}}</template>
             <router-link
-              v-for="(child, $childIndex) in item.children"
-              :key="`${$childIndex}`"
-              :to="child.path">
-              <el-menu-item
-                :index="`${$index}-${$childIndex}`">
-                {{child.label}}
+              class="nav--item"
+              v-for="(item, $index) in navTree"
+              :key="`${$index}`"
+              :to="item.path">
+              <el-menu-item :index="`${$index}`">
+                <!-- <i class="el-icon-setting"></i> -->
+                <span slot="title">{{item.label}}</span>
               </el-menu-item>
             </router-link>
-          </el-submenu>
         </el-menu>
       </el-col>
       <el-col :span="20" class="main--container">
         <section class="main--part-header">
-          <el-select
-            value-key="ship_id"
-            v-model="currentShip"
-            size="small"
-            placeholder="Select Ship">
-            <el-option
-              v-for="item in shipList"
-              :key="item.ship_id"
-              :label="item.name"
-              :value="item" />
-          </el-select>
           <span @click="logout">LOGOUT</span>
         </section>
         <transition name="slide-fade">
@@ -55,53 +42,32 @@ export default {
       shipList: [],
       tripList: [],
       navTree: [{
-        title: 'Content Management',
-        children: [{
-          label: 'Activities',
-          path: '/activity-management',
-        }, {
-          label: 'Banner',
-          path: '/banner-management',
-        }, {
-          label: 'Announcement',
-          path: '/announcement-management',
-        }, {
-          label: 'Wechat Update',
-          path: '/wechat-update',
-        }],
+        label: 'CONTAINERS',
+        path: '/containers',
       }, {
-        title: 'Content Library',
-        children: [{
-          label: 'Activity Library',
-          path: '/activity-library',
-        }, {
-          label: 'Announcement Library',
-          path: '/announcement-library',
-        }, {
-          label: 'Banner Library',
-          path: '/banner-library',
-        }],
+        label: 'IMAGES',
+        path: '/images',
       }, {
-        title: 'Trip Information',
-        children: [{
-          label: 'View Trips',
-          path: '/view-trips',
-        }, {
-          label: 'View Ports',
-          path: '/view-ports',
-        }, {
-          label: 'View Business Units',
-          path: '/view-business-units',
-        }],
+        label: 'NODES',
+        path: '/nodes',
       }, {
-        title: 'User Management',
-        children: [{
-          label: 'User Management',
-          path: '/user-management',
-        }, {
-          label: 'Role Management',
-          path: '/role-management',
-        }],
+        label: 'REGISTERIES',
+        path: '/registeries',
+      }, {
+        label: 'ACCOUNTS',
+        path: '/accounts',
+      }, {
+        label: 'EVENTS',
+        path: '/events',
+      }, {
+        label: 'Company Info',
+        path: '/companyInfo',
+      }, {
+        label: 'Truck List',
+        path: '/truckList',
+      }, {
+        label: 'Tester List',
+        path: '/testerList',
       }],
     };
   },
@@ -111,7 +77,7 @@ export default {
     },
   },
   mounted() {
-    this.getShipList();
+    // this.getShipList();
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -166,7 +132,6 @@ a {
   width: 100vw;
   display: flex;
 }
-
 .main--part-header {
   background-color: #fff;
   margin: 0;
