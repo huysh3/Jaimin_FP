@@ -4,8 +4,8 @@
       <el-col :span="4" class="nav-bar--left-part">
         <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
           <section class="nav--header">
-            <img class="costa--icon" src="http://images-1254092492.cosgz.myqcloud.com/2017-12-06-COSTA_LOGO.png.1.png" alt="">
-            <div class="header--title">Content Management</div>
+            <!-- <img class="costa--icon" src="http://images-1254092492.cosgz.myqcloud.com/2017-12-06-COSTA_LOGO.png.1.png" alt=""> -->
+            <div class="header--title">Node Management</div>
             <div class="header--subtitle"></div>
           </section>
             <router-link
@@ -22,7 +22,7 @@
       </el-col>
       <el-col :span="20" class="main--container">
         <section class="main--part-header">
-          <span @click="logout">LOGOUT</span>
+          <!-- <span @click="logout">LOGOUT</span> -->
         </section>
         <transition name="slide-fade">
           <router-view class="main--body"></router-view>

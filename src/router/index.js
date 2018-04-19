@@ -11,6 +11,10 @@ export default new Router({
       component: () => import('../pages/containers'),
     },
     {
+      path: '/containerDetail/:container_id',
+      component: () => import('../pages/containerDetail'),
+    },
+    {
       path: '/images',
       component: () => import('../pages/images'),
     },
