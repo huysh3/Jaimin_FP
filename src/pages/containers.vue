@@ -56,10 +56,10 @@ export default {
   },
   methods: {
     getContainerList() {
-      this.axios.get(`/containers?1=1&host_id=2`)
+      this.axios.get(`/containers?1=1`)
         .then((res) => {
           console.log(res);
-          this.tableData = res.host;
+          this.tableData = res;
         });
     },
   },

@@ -1,12 +1,10 @@
 <template>
   <div class="container">
     <el-table :data="tableData">
-      <el-table-column prop="Id" label="Id"/>
-      <el-table-column prop="VirtualSize" label="Virtual Size"/>
-      <el-table-column prop="Size" label="Size"/>
-      <el-table-column prop="SharedSize" label="Shared Size"/>
-      <el-table-column prop="RepoDigests" label="Repo Digests"/>
-      <el-table-column prop="RepoTags" label="Repo Tags"/>
+      <el-table-column prop="host_id" label="Host Id"/>
+      <el-table-column prop="id" label="Id"/>
+      <el-table-column prop="name" label="Name"/>
+      <el-table-column prop="created_at" label="Created At"/>
       <el-table-column label="Operation">
         <template scope="scope">
           <el-button type="text" style="color: red;">Delete</el-button>
@@ -28,8 +26,9 @@ export default {
   },
   methods: {
     getImageList() {
-      this.axios.get(`/images?1=1&host_id=1`)
+      this.axios.get(`/images?1=1`)
         .then((res) => {
+          console.log(res);
           this.tableData = res;
         });
     },

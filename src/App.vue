@@ -59,15 +59,15 @@ export default {
       }, {
         label: 'EVENTS',
         path: '/events',
-      }, {
-        label: 'Company Info',
-        path: '/companyInfo',
-      }, {
-        label: 'Truck List',
-        path: '/truckList',
-      }, {
-        label: 'Tester List',
-        path: '/testerList',
+      // }, {
+      //   label: 'Company Info',
+      //   path: '/companyInfo',
+      // }, {
+      //   label: 'Truck List',
+      //   path: '/truckList',
+      // }, {
+      //   label: 'Tester List',
+      //   path: '/testerList',
       }],
     };
   },
