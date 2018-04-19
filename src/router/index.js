@@ -31,8 +31,8 @@ export default new Router({
       component: () => import('../pages/accounts'),
     },
     {
-      path: '/events',
-      component: () => import('../pages/events'),
+      path: '/logs',
+      component: () => import('../pages/logs'),
     },
     {
       path: '/companyInfo',

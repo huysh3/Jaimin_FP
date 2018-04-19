@@ -51,14 +51,14 @@ export default {
         label: 'NODES',
         path: '/nodes',
       }, {
-        label: 'REGISTERIES',
-        path: '/registeries',
-      }, {
-        label: 'ACCOUNTS',
-        path: '/accounts',
-      }, {
-        label: 'EVENTS',
-        path: '/events',
+        label: 'LOGS',
+        path: '/logs',
+      // }, {
+      //   label: 'ACCOUNTS',
+      //   path: '/accounts',
+      // }, {
+      //   label: 'EVENTS',
+      //   path: '/events',
       // }, {
       //   label: 'Company Info',
       //   path: '/companyInfo',
