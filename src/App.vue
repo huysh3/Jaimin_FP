@@ -29,6 +29,24 @@
         </transition>
       </el-col>
     </el-row>
+    <el-dialog
+      title="Login"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+      <div class="dialog--body">
+        <el-input style="margin-bottom: 1rem;" type="text">
+          <template slot="prepend">Username</template>
+        </el-input>
+        <el-input style="margin-bottom: 1rem;" type="password">
+          <template slot="prepend">Password</template>
+        </el-input>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -37,6 +55,7 @@ export default {
   name: 'app',
   data() {
     return {
+      dialogVisible: false,
       selectShipModalStatus: false,
       currentShip: '',
       shipList: [],
@@ -53,15 +72,15 @@ export default {
       }, {
         label: 'LOGS',
         path: '/logs',
-      // }, {
-      //   label: 'ACCOUNTS',
-      //   path: '/accounts',
-      // }, {
-      //   label: 'EVENTS',
-      //   path: '/events',
+      }, {
+        label: 'EVENTS',
+        path: '/events',
       // }, {
       //   label: 'Company Info',
       //   path: '/companyInfo',
+      // }, {
+      //   label: 'Dashboard',
+      //   path: '/dashboard',
       // }, {
       //   label: 'Truck List',
       //   path: '/truckList',

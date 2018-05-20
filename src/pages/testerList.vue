@@ -1,11 +1,15 @@
 <template>
   <div class="truck-list--container">
     <el-table :data="tableData">
-      <el-table-column prop="id" label="Id"/>
+      <el-table-column width="120" prop="id" label="Id"/>
       <el-table-column prop="name" label="Name"/>
-      <el-table-column prop="number" label="Number"/>
+      <el-table-column width="120" prop="number" label="Number"/>
       <el-table-column prop="type" label="Type"/>
-      <el-table-column prop="status" label="Status"/>
+      <el-table-column prop="status" label="Status">
+        <template scope="scope">
+          <el-tag type="success">{{scope.row.status}}</el-tag>
+        </template>
+      </el-table-column>
       <el-table-column label="Operations">
         <template scope="scope">
           <el-button @click="editTesterHandler(scope)" type="text">Edit</el-button>
@@ -46,12 +50,12 @@ export default {
   data() {
     return {
       tableData: [],
-      testerDialogVisible: true,
+      testerDialogVisible: false,
       testerDialog: dataStructure,
     };
   },
   mounted() {
-    axios.get(`http://www.hanligas.com/ajax/get/truck_list`)
+    axios.get(`http://www.hanligas.com/ajax/get/tester_list`)
         .then((res) => {
           console.log(res);
           this.tableData = res.data;

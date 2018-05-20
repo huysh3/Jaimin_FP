@@ -13,6 +13,12 @@
         </template>
       </el-table-column>
       <el-table-column prop="id" label="Id"/>
+      <el-table-column>
+        <template scope="scope">
+          <el-button @click="deleteHandler(scope)" style="color: red;" type="text">Delete</el-button>
+        </template>
+      </el-table-column>
+
     </el-table>
     <el-dialog
       title="Add Node"
@@ -50,6 +56,21 @@ export default {
     this.getHosts();
   },
   methods: {
+    deleteHandler(scope) {
+      console.log(scope.row.id);
+      this.$confirm('确认删除该node？')
+        .then(() => {
+          const idxTable = [];
+          this.tableData.map((item) => {
+            if (item.id !== scope.row.id) {
+              idxTable.push(item);
+            }
+            return true;
+          });
+          this.tableData = idxTable;
+        })
+        .catch(() => false);
+    },
     getHosts() {
       this.axios.get(`/hosts`)
         .then((res) => {

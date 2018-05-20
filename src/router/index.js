@@ -43,6 +43,14 @@ export default new Router({
       component: () => import('../pages/testerList'),
     },
     {
+      path: '/truckList',
+      component: () => import('../pages/truckList'),
+    },
+    {
+      path: '/dashboard',
+      component: () => import('../pages/dashboard'),
+    },
+    {
       path: '*',
       redirect: '/containers',
     },
