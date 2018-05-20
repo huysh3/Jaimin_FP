@@ -25,7 +25,8 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, { locale });
 
 Vue.prototype.axios = axios.create({
-  baseURL: `http://122.152.226.42${verPath}`,
+  // baseURL: `http://122.152.226.42${verPath}`,
+  baseURL: `http://localhost:3000/ajax/`,
   withCredentials: false,
 });
 
@@ -36,6 +37,9 @@ Vue.prototype.axios.interceptors.response.use((res) => {
   } else if (res.data.code === 0) {
     Vue.prototype.$message.error(res.data.msg);
     return Promise.reject(res.data);
+  }
+  if (res.status === 200) {
+    Vue.prototype.$message.success('success');
   }
   console.log(res.data);
   return res.data;

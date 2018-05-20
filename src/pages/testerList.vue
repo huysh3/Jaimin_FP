@@ -1,5 +1,6 @@
 <template>
   <div class="truck-list--container">
+    <el-button @click="addHandler" type="primary" size="small">Create +</el-button>
     <el-table :data="tableData">
       <el-table-column width="120" prop="id" label="Id"/>
       <el-table-column prop="name" label="Name"/>
@@ -55,31 +56,49 @@ export default {
     };
   },
   mounted() {
-    axios.get(`http://www.hanligas.com/ajax/get/tester_list`)
+    this.getTesterList();
+  },
+  methods: {
+    getTesterList() {
+      axios.get(`http://www.hanligas.com/ajax/get/tester_list`)
         .then((res) => {
           console.log(res);
           this.tableData = res.data;
         });
-  },
-  methods: {
+    },
+    addHandler() {
+      this.testerDialogVisible = true;
+    },
     editTesterHandler(scope) {
       this.testerDialogVisible = true;
       this.testerDialog = JSON.parse(JSON.stringify(scope.row));
       this.testerDialog.currentId = scope.row.id;
     },
     deleteTesterHandler(scope) {
-      console.log(scope.row.id);
+      this.$confirm('确认删除该测试机？')
+        .then(() => {
+        this.axios.get(`delete/delete_tester?id=${scope.row.id}`)
+            .then(() => {
+              this.getTesterList();
+            });
+        })
+        .catch(() => false);
     },
     dialogConfirm() {
-      this.testerDialogVisible = false;
-      this.tableData.map((item, index) => {
-        console.log(item.id, this.testerDialog.currentId);
-        if (String(item.id) === String(this.testerDialog.currentId)) {
-          console.log(item);
-          this.$set(this.tableData, index, this.testerDialog);
-        }
-        return true;
-      });
+      this.axios.get(`post/add_tester?name=${this.testerDialog.name}&type=${this.testerDialog.type}&status=${this.testerDialog.status}&number=${this.testerDialog.number}`)
+        .then(() => {
+          this.getTesterList();
+          this.testerDialogVisible = false;
+        });
+      // this.testerDialogVisible = false;
+      // this.tableData.map((item, index) => {
+      //   console.log(item.id, this.testerDialog.currentId);
+      //   if (String(item.id) === String(this.testerDialog.currentId)) {
+      //     console.log(item);
+      //     this.$set(this.tableData, index, this.testerDialog);
+      //   }
+      //   return true;
+      // });
     },
   },
 };

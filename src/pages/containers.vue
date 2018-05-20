@@ -8,7 +8,9 @@
     <el-table :data="tableData">
       <el-table-column width="100" prop="status" label="Status">
         <template scope="scope">
-          <el-tag :type="scope.row.status == 'running' ? 'success' : 'danger'">
+          <el-tag
+            :class="scope.row.status"
+          >
             {{scope.row.status}}
           </el-tag>
         </template>
@@ -45,9 +47,17 @@
     >
       <el-row :gutter="20" class="dialog--body">
         <el-col :span="24">
-          <el-input v-model="containerData.status" style="margin-bottom: 1rem;" type="text">
+          <!-- <el-input v-model="containerData.status" style="margin-bottom: 1rem;" type="text">
             <template slot="prepend">Status</template>
-          </el-input>
+          </el-input> -->
+          <el-select style="width: 100%; margin-bottom: 1rem;" v-model="containerData.status" placeholder="Status">
+            <el-option
+              v-for="item in statusList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </el-col>
         <el-col :span="24">
           <el-input v-model="containerData.name" style="margin-bottom: 1rem;" type="text">
@@ -204,6 +214,16 @@ export default {
       tableData: [],
       containerData,
       infoInputDialogVisible: false,
+      statusList: [{
+        value: 'exited',
+        label: 'exited',
+      }, {
+        value: 'created',
+        label: 'created',
+      }, {
+        value: 'running',
+        label: 'running',
+      }],
       dropdownList: [
         'Restart',
         'Stop',
@@ -269,5 +289,21 @@ export default {
     &.exited {
       background-color: red;
     }
+  }
+  .running {
+    background-color: rgba(103,194,58,.1);
+    border-color: rgba(103,194,58,.2);
+    color: #67c23a;
+  }
+  .exited {
+    background-color: hsla(0,87%,69%,.1);
+    border-color: hsla(0,87%,69%,.2);
+    color: #f56c6c;
+  }
+  .created {
+    color: #409eff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(64,158,255,.2);
   }
 </style>

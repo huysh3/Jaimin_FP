@@ -61,20 +61,20 @@ export default {
       shipList: [],
       tripList: [],
       navTree: [{
-        label: 'CONTAINERS',
-        path: '/containers',
-      }, {
-        label: 'IMAGES',
-        path: '/images',
-      }, {
-        label: 'NODES',
-        path: '/nodes',
-      }, {
-        label: 'LOGS',
-        path: '/logs',
-      }, {
-        label: 'EVENTS',
-        path: '/events',
+      //   label: 'CONTAINERS',
+      //   path: '/containers',
+      // }, {
+      //   label: 'IMAGES',
+      //   path: '/images',
+      // }, {
+      //   label: 'NODES',
+      //   path: '/nodes',
+      // }, {
+      //   label: 'LOGS',
+      //   path: '/logs',
+      // }, {
+      //   label: 'EVENTS',
+      //   path: '/events',
       // }, {
       //   label: 'Company Info',
       //   path: '/companyInfo',
@@ -82,11 +82,11 @@ export default {
       //   label: 'Dashboard',
       //   path: '/dashboard',
       // }, {
-      //   label: 'Truck List',
-      //   path: '/truckList',
-      // }, {
-      //   label: 'Tester List',
-      //   path: '/testerList',
+        label: 'Truck List',
+        path: '/truckList',
+      }, {
+        label: 'Tester List',
+        path: '/testerList',
       }],
     };
   },
