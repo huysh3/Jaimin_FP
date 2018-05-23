@@ -76,12 +76,18 @@ export default {
       //   label: 'EVENTS',
       //   path: '/events',
       // }, {
-      //   label: 'Company Info',
-      //   path: '/companyInfo',
-      // }, {
-      //   label: 'Dashboard',
-      //   path: '/dashboard',
-      // }, {
+        label: 'Qualification System',
+        path: '/qsList',
+      }, {
+        label: 'Company Info',
+        path: '/companyInfo',
+      }, {
+        label: 'Company Qualification List',
+        path: '/companyQualificationList',
+      }, {
+        label: 'Product List',
+        path: '/productList',
+      }, {
         label: 'Truck List',
         path: '/truckList',
       }, {

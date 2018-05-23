@@ -5,6 +5,11 @@ import ElementUI from 'element-ui';
 import locale from 'element-ui/lib/locale/lang/en';
 import axios from 'axios';
 import 'element-ui/lib/theme-chalk/index.css';
+import VueQuillEditor from 'vue-quill-editor';
+// require styles 引入样式
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
 
 import store from './store';
 import App from './App';
@@ -23,6 +28,7 @@ Vue.prototype.ENV = process.env.NODE_ENV;
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI, { locale });
+Vue.use(VueQuillEditor);
 
 Vue.prototype.axios = axios.create({
   // baseURL: `http://122.152.226.42${verPath}`,

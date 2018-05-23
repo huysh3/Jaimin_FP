@@ -93,7 +93,6 @@ export default {
       console.log(this.truckDialog);
       this.axios.get(`post/add_truck?name=${this.truckDialog.name}&type=${this.truckDialog.type}&status=${this.truckDialog.status}&number=${this.truckDialog.number}&start_time=${this.truckDialog.start_time}`)
         .then(() => {
-          debugger;
           this.truckDialogVisible = false;
           this.getTruckList();
         });
